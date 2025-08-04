@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { apiClient } from "@/config/api-client";
-import { DashboardMetrics, DateRange } from "@/types/api";
+import { type DashboardMetrics, type DateRange } from "@/types/api";
 
 interface UseDashboardMetricsOptions {
-  dateRange?: DateRange;
-  enabled?: boolean;
-  refetchInterval?: number;
+  dateRange?: DateRange | undefined;
+  enabled?: boolean | undefined;
+  refetchInterval?: number | undefined;
 }
 
 export function useDashboardMetrics(options: UseDashboardMetricsOptions = {}) {
@@ -30,7 +30,7 @@ export function useDashboardMetrics(options: UseDashboardMetricsOptions = {}) {
       return response.data;
     },
     enabled,
-    refetchInterval,
+    ...(refetchInterval !== undefined && { refetchInterval }),
     staleTime: 5 * 60 * 1000, // 5 minutes
     gcTime: 10 * 60 * 1000, // 10 minutes
   });

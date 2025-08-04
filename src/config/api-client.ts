@@ -1,6 +1,6 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import axios, { type AxiosInstance, type AxiosRequestConfig, type AxiosResponse } from "axios";
 
-export interface ApiResponse<T = any> {
+export interface ApiResponse<T = unknown> {
   data: T;
   message?: string;
   status: number;
@@ -10,7 +10,7 @@ export interface ApiResponse<T = any> {
 export interface ApiError {
   message: string;
   status: number;
-  details?: any;
+  details?: unknown;
 }
 
 class ApiClient {
@@ -83,7 +83,7 @@ class ApiClient {
 
   async post<T>(
     url: string,
-    data?: any,
+    data?: unknown,
     config?: AxiosRequestConfig
   ): Promise<ApiResponse<T>> {
     const response = await this.client.post<ApiResponse<T>>(url, data, config);
@@ -92,7 +92,7 @@ class ApiClient {
 
   async put<T>(
     url: string,
-    data?: any,
+    data?: unknown,
     config?: AxiosRequestConfig
   ): Promise<ApiResponse<T>> {
     const response = await this.client.put<ApiResponse<T>>(url, data, config);
@@ -101,7 +101,7 @@ class ApiClient {
 
   async patch<T>(
     url: string,
-    data?: any,
+    data?: unknown,
     config?: AxiosRequestConfig
   ): Promise<ApiResponse<T>> {
     const response = await this.client.patch<ApiResponse<T>>(url, data, config);

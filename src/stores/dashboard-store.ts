@@ -27,7 +27,7 @@ type DashboardStore = DashboardState & DashboardActions;
 export const useDashboardStore = create<DashboardStore>()(
   devtools(
     persist(
-      (set, get) => ({
+      (set, _get) => ({
         sidebarOpen: true,
         theme: "system",
         notifications: [],

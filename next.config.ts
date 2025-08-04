@@ -4,14 +4,6 @@ const nextConfig: NextConfig = {
   // Enable experimental features for better performance
   experimental: {
     optimizePackageImports: ["lucide-react", "@radix-ui/react-icons"],
-    turbo: {
-      rules: {
-        "*.svg": {
-          loaders: ["@svgr/webpack"],
-          as: "*.js",
-        },
-      },
-    },
   },
 
   // Image optimization

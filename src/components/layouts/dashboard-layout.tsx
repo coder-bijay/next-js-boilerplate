@@ -3,7 +3,7 @@ import { Header } from "./header";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
-  title?: string;
+  title?: string | undefined;
 }
 
 export function DashboardLayout({ children, title }: DashboardLayoutProps) {

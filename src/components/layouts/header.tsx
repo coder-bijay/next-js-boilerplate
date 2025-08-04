@@ -5,7 +5,7 @@ import { Bell, Search, User } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 interface HeaderProps {
-  title?: string;
+  title?: string | undefined;
 }
 
 export function Header({ title = "Dashboard" }: HeaderProps) {

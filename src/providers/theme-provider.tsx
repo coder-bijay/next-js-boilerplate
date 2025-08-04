@@ -1,7 +1,14 @@
 "use client";
 
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { type ThemeProviderProps } from "next-themes/dist/types";
+
+interface ThemeProviderProps {
+  children: React.ReactNode;
+  attribute?: string | undefined;
+  defaultTheme?: string | undefined;
+  enableSystem?: boolean | undefined;
+  disableTransitionOnChange?: boolean | undefined;
+}
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return (
@@ -10,7 +17,7 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
       defaultTheme="system"
       enableSystem
       disableTransitionOnChange
-      {...props}
+      {...(props as Record<string, unknown>)}
     >
       {children}
     </NextThemesProvider>

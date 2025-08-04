@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { DashboardMetrics } from "@/types/api";
+import { type DashboardMetrics } from "@/types/api";
 
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
-    const dateRange = {
+    const _dateRange = {
       from: searchParams.get("from"),
       to: searchParams.get("to"),
     };
@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
       success: true,
       status: 200,
     });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       {
         message: "Failed to fetch dashboard metrics",

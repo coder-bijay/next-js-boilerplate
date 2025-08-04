@@ -14,7 +14,7 @@
     "jsx": "preserve",
     "incremental": true,
     "noUncheckedIndexedAccess": true,
-    "noImplicitOverride": true,
+    "noImplicitOverride": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,

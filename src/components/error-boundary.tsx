@@ -7,7 +7,7 @@ import { AlertTriangle, RefreshCw } from "lucide-react";
 
 interface ErrorBoundaryState {
   hasError: boolean;
-  error?: Error;
+  error?: Error | undefined;
 }
 
 interface ErrorBoundaryProps {
@@ -76,7 +76,7 @@ export class ErrorBoundary extends React.Component<
   }
 
   resetError = () => {
-    this.setState({ hasError: false, error: undefined });
+    this.setState({ hasError: false });
   };
 
   render() {
